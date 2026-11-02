@@ -135,6 +135,14 @@ int stm32_bringup(void)
     }
 #endif
 
+#if defined(CONFIG_ADC) && defined(CONFIG_STM32_ADC1)
+  ret = stm32_adc_setup();
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to register ADC: %d\n", ret);
+    }
+#endif
+
   UNUSED(ret);
   return OK;
 }

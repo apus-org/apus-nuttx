@@ -73,5 +73,9 @@ int stm32_bringup(void);
 int stm32_rgbled_setup(void);
 #endif
 
+#if defined(CONFIG_ADC) && defined(CONFIG_STM32_ADC1)
+int stm32_adc_setup(void);
+#endif
+
 #endif /* __ASSEMBLY__ */
 #endif /* __BOARDS_APUS_SRC_APUS_H */

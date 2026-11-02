@@ -138,4 +138,8 @@
 #define GPIO_TIM3_CH2OUT         GPIO_TIM3_CH2_1                       /* PC7 G */
 #define GPIO_TIM3_CH3OUT         GPIO_TIM3_CH3_1                       /* PC8 B */
 
+/* DMA channels *************************************************************/
+
+#define ADC1_DMA_CHAN            STM32_DMA1_CHAN1
+
 #endif /* __BOARDS_APUS_INCLUDE_BOARD_H */
