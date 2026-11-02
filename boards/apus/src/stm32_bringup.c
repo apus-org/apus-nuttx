@@ -25,8 +25,10 @@
 #include <nuttx/usb/cdcacm.h>
 #include <nuttx/lcd/lcd_dev.h>
 #include <nuttx/input/buttons.h>
+#include <nuttx/spi/spi_transfer.h>
 
 #include "stm32_i2c.h"
+#include "stm32_spi.h"
 #include "apus.h"
 
 #ifdef CONFIG_SENSORS_LM75
@@ -100,6 +102,27 @@ static void stm32_i2c1_initialize(void)
 }
 #endif
 
+#if defined(CONFIG_SPI_DRIVER) && defined(CONFIG_STM32_SPI2)
+static void stm32_spi2_initialize(void)
+{
+  struct spi_dev_s *spi;
+  int ret;
+
+  spi = stm32_spibus_initialize(2);
+  if (spi == NULL)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to get SPI2\n");
+      return;
+    }
+
+  ret = spi_register(spi, 2);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to register SPI2: %d\n", ret);
+    }
+}
+#endif
+
 /****************************************************************************
  * Public Functions
  ****************************************************************************/
@@ -137,6 +160,10 @@ int stm32_bringup(void)
 
 #ifdef CONFIG_STM32_I2C1
   stm32_i2c1_initialize();
+#endif
+
+#if defined(CONFIG_SPI_DRIVER) && defined(CONFIG_STM32_SPI2)
+  stm32_spi2_initialize();
 #endif
 
 #ifdef CONFIG_RGBLED

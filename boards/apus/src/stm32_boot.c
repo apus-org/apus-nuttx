@@ -38,7 +38,7 @@ void stm32_boardinitialize(void)
   modifyreg32(STM32_RCC_APB2ENR, 0, RCC_APB2ENR_SYSCFGCOMPEN);
 #endif
 
-#ifdef CONFIG_STM32_SPI1
+#ifdef CONFIG_STM32_SPI
   stm32_spidev_initialize();
 #endif
 

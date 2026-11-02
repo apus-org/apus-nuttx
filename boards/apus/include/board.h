@@ -151,6 +151,12 @@
 #define GPIO_SPI1_MISO           (GPIO_SPI1_MISO_3 | GPIO_SPEED_HIGH)  /* PE14 */
 #define GPIO_SPI1_MOSI           (GPIO_SPI1_MOSI_3 | GPIO_SPEED_HIGH)  /* PE15 */
 
+/* SPI2: Arduino D11-D13, chip select on D10 */
+
+#define GPIO_SPI2_SCK            (GPIO_SPI2_SCK_1 | GPIO_SPEED_HIGH)   /* PB13 */
+#define GPIO_SPI2_MISO           (GPIO_SPI2_MISO_1 | GPIO_SPEED_HIGH)  /* PB14 */
+#define GPIO_SPI2_MOSI           (GPIO_SPI2_MOSI_1 | GPIO_SPEED_HIGH)  /* PB15 */
+
 /* DMA channels *************************************************************/
 
 #define ADC1_DMA_CHAN            STM32_DMA1_CHAN1

@@ -89,6 +89,11 @@
 #define GPIO_TP_INT     (GPIO_INPUT | GPIO_PULLUP | GPIO_EXTI | \
                          GPIO_PORTF | GPIO_PIN2)
 
+/* Arduino D10: SPI2 chip select */
+
+#define GPIO_ARDUINO_CS (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_HIGH | \
+                         GPIO_OUTPUT_SET | GPIO_PORTB | GPIO_PIN12)
+
 /****************************************************************************
  * Public Function Prototypes
  ****************************************************************************/
@@ -109,7 +114,7 @@ int stm32_adc_setup(void);
 int stm32_gpio_initialize(void);
 #endif
 
-#ifdef CONFIG_STM32_SPI1
+#ifdef CONFIG_STM32_SPI
 void stm32_spidev_initialize(void);
 #endif
 
