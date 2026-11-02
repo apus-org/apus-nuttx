@@ -82,6 +82,13 @@
 #define GPIO_LCD_RST    (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_LOW | \
                          GPIO_OUTPUT_CLEAR | GPIO_PORTF | GPIO_PIN10)
 
+/* XPT2046 touch controller on SPI1: chip select and pen interrupt */
+
+#define GPIO_TP_CS      (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_HIGH | \
+                         GPIO_OUTPUT_SET | GPIO_PORTE | GPIO_PIN12)
+#define GPIO_TP_INT     (GPIO_INPUT | GPIO_PULLUP | GPIO_EXTI | \
+                         GPIO_PORTF | GPIO_PIN2)
+
 /****************************************************************************
  * Public Function Prototypes
  ****************************************************************************/
@@ -100,6 +107,14 @@ int stm32_adc_setup(void);
 
 #ifdef CONFIG_DEV_GPIO
 int stm32_gpio_initialize(void);
+#endif
+
+#ifdef CONFIG_STM32_SPI1
+void stm32_spidev_initialize(void);
+#endif
+
+#ifdef CONFIG_INPUT_ADS7843E
+int stm32_touchscreen_setup(int minor);
 #endif
 
 #endif /* __ASSEMBLY__ */

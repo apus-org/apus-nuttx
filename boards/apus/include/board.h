@@ -145,6 +145,12 @@
 #define GPIO_TIM3_CH2OUT         GPIO_TIM3_CH2_1                       /* PC7 G */
 #define GPIO_TIM3_CH3OUT         GPIO_TIM3_CH3_1                       /* PC8 B */
 
+/* SPI1: touch controller */
+
+#define GPIO_SPI1_SCK            (GPIO_SPI1_SCK_3 | GPIO_SPEED_HIGH)   /* PE13 */
+#define GPIO_SPI1_MISO           (GPIO_SPI1_MISO_3 | GPIO_SPEED_HIGH)  /* PE14 */
+#define GPIO_SPI1_MOSI           (GPIO_SPI1_MOSI_3 | GPIO_SPEED_HIGH)  /* PE15 */
+
 /* DMA channels *************************************************************/
 
 #define ADC1_DMA_CHAN            STM32_DMA1_CHAN1

@@ -19,6 +19,14 @@ else()
   list(APPEND SRCS stm32_userleds.c)
 endif()
 
+if(CONFIG_STM32_SPI1)
+  list(APPEND SRCS stm32_spi.c)
+endif()
+
+if(CONFIG_INPUT_ADS7843E)
+  list(APPEND SRCS stm32_touchscreen.c)
+endif()
+
 if(CONFIG_LCD_ST7789)
   list(APPEND SRCS stm32_lcd.c)
 endif()

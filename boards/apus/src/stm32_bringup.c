@@ -175,6 +175,14 @@ int stm32_bringup(void)
     }
 #endif
 
+#ifdef CONFIG_INPUT_ADS7843E
+  ret = stm32_touchscreen_setup(CONFIG_ADS7843E_DEVMINOR);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to register touchscreen: %d\n", ret);
+    }
+#endif
+
 #ifdef HAVE_CDCACM
   ret = cdcacm_initialize(0, NULL);
   if (ret < 0)

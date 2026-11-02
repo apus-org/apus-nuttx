@@ -19,6 +19,14 @@ else
 CSRCS += stm32_userleds.c
 endif
 
+ifeq ($(CONFIG_STM32_SPI1),y)
+CSRCS += stm32_spi.c
+endif
+
+ifeq ($(CONFIG_INPUT_ADS7843E),y)
+CSRCS += stm32_touchscreen.c
+endif
+
 ifeq ($(CONFIG_LCD_ST7789),y)
 CSRCS += stm32_lcd.c
 endif
