@@ -21,12 +21,21 @@
 #include <nuttx/i2c/i2c_master.h>
 #include <nuttx/eeprom/eeprom.h>
 #include <nuttx/timers/mcp794xx.h>
+#include <nuttx/usb/cdcacm.h>
 
 #include "stm32_i2c.h"
 #include "apus.h"
 
 #ifdef CONFIG_SENSORS_LM75
 #  include "stm32_lm75.h"
+#endif
+
+/****************************************************************************
+ * Pre-processor Definitions
+ ****************************************************************************/
+
+#if defined(CONFIG_CDCACM) && !defined(CONFIG_CDCACM_COMPOSITE)
+#  define HAVE_CDCACM 1
 #endif
 
 /****************************************************************************
@@ -148,6 +157,14 @@ int stm32_bringup(void)
   if (ret < 0)
     {
       syslog(LOG_ERR, "ERROR: Failed to register GPIOs: %d\n", ret);
+    }
+#endif
+
+#ifdef HAVE_CDCACM
+  ret = cdcacm_initialize(0, NULL);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to register CDC ACM: %d\n", ret);
     }
 #endif
 

@@ -88,4 +88,11 @@ void stm32_board_clockconfig(void)
   regval |= STM32_SYSCLK_SW;
   putreg32(regval, STM32_RCC_CFGR);
   while ((getreg32(STM32_RCC_CFGR) & RCC_CFGR_SWS_MASK) != STM32_SYSCLK_SWS);
+
+#ifdef STM32_USE_CLK48
+  regval  = getreg32(STM32_RCC_CFGR3);
+  regval &= ~RCC_CFGR3_USBSW;
+  regval |= STM32_CLK48_SEL;
+  putreg32(regval, STM32_RCC_CFGR3);
+#endif
 }

@@ -19,6 +19,10 @@ else
 CSRCS += stm32_userleds.c
 endif
 
+ifeq ($(CONFIG_STM32_USB),y)
+CSRCS += stm32_usb.c
+endif
+
 ifeq ($(CONFIG_DEV_GPIO),y)
 CSRCS += stm32_gpio.c
 endif
