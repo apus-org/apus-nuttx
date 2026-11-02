@@ -48,6 +48,12 @@
                          GPIO_PORTD | GPIO_PIN1)
 #define GPIO_BTN_WAKEUP (GPIO_INPUT | GPIO_PULLDOWN | GPIO_PORTA | GPIO_PIN0)
 
+/* I2C1 devices */
+
+#define APUS_I2C_BUS        1
+#define APUS_MCP79410_ADDR  0x6f
+#define APUS_EEPROM_ADDR    0x57
+
 /****************************************************************************
  * Public Function Prototypes
  ****************************************************************************/

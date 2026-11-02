@@ -127,4 +127,9 @@
 #define GPIO_USART1_TX           (GPIO_USART1_TX_2 | GPIO_SPEED_HIGH)  /* PA9 */
 #define GPIO_USART1_RX           (GPIO_USART1_RX_2 | GPIO_SPEED_HIGH)  /* PA10 */
 
+/* I2C1: temperature sensor, RTC and its EEPROM (external pull-ups) */
+
+#define GPIO_I2C1_SCL            (GPIO_I2C1_SCL_1 | GPIO_SPEED_LOW)    /* PB6 */
+#define GPIO_I2C1_SDA            (GPIO_I2C1_SDA_1 | GPIO_SPEED_LOW)    /* PB7 */
+
 #endif /* __BOARDS_APUS_INCLUDE_BOARD_H */
