@@ -127,6 +127,14 @@ int stm32_bringup(void)
   stm32_i2c1_initialize();
 #endif
 
+#ifdef CONFIG_RGBLED
+  ret = stm32_rgbled_setup();
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to register RGB LED: %d\n", ret);
+    }
+#endif
+
   UNUSED(ret);
   return OK;
 }

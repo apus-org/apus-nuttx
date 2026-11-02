@@ -54,6 +54,13 @@
 #define APUS_MCP79410_ADDR  0x6f
 #define APUS_EEPROM_ADDR    0x57
 
+/* RGB LED on TIM3 */
+
+#define APUS_RGBLED_TIMER   3
+#define APUS_RGBLED_RCHAN   1
+#define APUS_RGBLED_GCHAN   2
+#define APUS_RGBLED_BCHAN   3
+
 /****************************************************************************
  * Public Function Prototypes
  ****************************************************************************/
@@ -61,6 +68,10 @@
 #ifndef __ASSEMBLY__
 
 int stm32_bringup(void);
+
+#ifdef CONFIG_RGBLED
+int stm32_rgbled_setup(void);
+#endif
 
 #endif /* __ASSEMBLY__ */
 #endif /* __BOARDS_APUS_SRC_APUS_H */

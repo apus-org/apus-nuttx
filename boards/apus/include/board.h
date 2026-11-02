@@ -132,4 +132,10 @@
 #define GPIO_I2C1_SCL            (GPIO_I2C1_SCL_1 | GPIO_SPEED_LOW)    /* PB6 */
 #define GPIO_I2C1_SDA            (GPIO_I2C1_SDA_1 | GPIO_SPEED_LOW)    /* PB7 */
 
+/* TIM3: RGB LED, common anode */
+
+#define GPIO_TIM3_CH1OUT         GPIO_TIM3_CH1_1                       /* PC6 R */
+#define GPIO_TIM3_CH2OUT         GPIO_TIM3_CH2_1                       /* PC7 G */
+#define GPIO_TIM3_CH3OUT         GPIO_TIM3_CH3_1                       /* PC8 B */
+
 #endif /* __BOARDS_APUS_INCLUDE_BOARD_H */
