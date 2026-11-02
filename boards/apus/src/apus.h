@@ -66,6 +66,22 @@
 #define APUS_RGBLED_GCHAN   2
 #define APUS_RGBLED_BCHAN   3
 
+/* ST7789V display on an 8080 8-bit bus: data PE0-7, control PE8-11 */
+
+#define GPIO_LCD_DATA(n) (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_HIGH | \
+                          GPIO_OUTPUT_CLEAR | GPIO_PORTE | \
+                          ((n) << GPIO_PIN_SHIFT))
+#define GPIO_LCD_CS     (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_HIGH | \
+                         GPIO_OUTPUT_SET | GPIO_PORTE | GPIO_PIN8)
+#define GPIO_LCD_DC     (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_HIGH | \
+                         GPIO_OUTPUT_SET | GPIO_PORTE | GPIO_PIN9)
+#define GPIO_LCD_WR     (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_HIGH | \
+                         GPIO_OUTPUT_SET | GPIO_PORTE | GPIO_PIN10)
+#define GPIO_LCD_RD     (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_HIGH | \
+                         GPIO_OUTPUT_SET | GPIO_PORTE | GPIO_PIN11)
+#define GPIO_LCD_RST    (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_LOW | \
+                         GPIO_OUTPUT_CLEAR | GPIO_PORTF | GPIO_PIN10)
+
 /****************************************************************************
  * Public Function Prototypes
  ****************************************************************************/

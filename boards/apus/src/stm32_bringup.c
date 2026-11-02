@@ -16,12 +16,14 @@
 #include <sys/types.h>
 #include <syslog.h>
 
+#include <nuttx/board.h>
 #include <nuttx/clock.h>
 #include <nuttx/fs/fs.h>
 #include <nuttx/i2c/i2c_master.h>
 #include <nuttx/eeprom/eeprom.h>
 #include <nuttx/timers/mcp794xx.h>
 #include <nuttx/usb/cdcacm.h>
+#include <nuttx/lcd/lcd_dev.h>
 
 #include "stm32_i2c.h"
 #include "apus.h"
@@ -157,6 +159,19 @@ int stm32_bringup(void)
   if (ret < 0)
     {
       syslog(LOG_ERR, "ERROR: Failed to register GPIOs: %d\n", ret);
+    }
+#endif
+
+#ifdef CONFIG_LCD_DEV
+  ret = board_lcd_initialize();
+  if (ret == OK)
+    {
+      ret = lcddev_register(0);
+    }
+
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to register LCD: %d\n", ret);
     }
 #endif
 

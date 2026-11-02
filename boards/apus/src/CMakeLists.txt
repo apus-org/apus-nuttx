@@ -19,6 +19,10 @@ else()
   list(APPEND SRCS stm32_userleds.c)
 endif()
 
+if(CONFIG_LCD_ST7789)
+  list(APPEND SRCS stm32_lcd.c)
+endif()
+
 if(CONFIG_STM32_USB)
   list(APPEND SRCS stm32_usb.c)
 endif()
