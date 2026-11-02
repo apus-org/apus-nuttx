@@ -24,6 +24,7 @@
 #include <nuttx/timers/mcp794xx.h>
 #include <nuttx/usb/cdcacm.h>
 #include <nuttx/lcd/lcd_dev.h>
+#include <nuttx/input/buttons.h>
 
 #include "stm32_i2c.h"
 #include "apus.h"
@@ -159,6 +160,14 @@ int stm32_bringup(void)
   if (ret < 0)
     {
       syslog(LOG_ERR, "ERROR: Failed to register GPIOs: %d\n", ret);
+    }
+#endif
+
+#ifdef CONFIG_INPUT_BUTTONS_LOWER
+  ret = btn_lower_initialize("/dev/buttons");
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to register buttons: %d\n", ret);
     }
 #endif
 
