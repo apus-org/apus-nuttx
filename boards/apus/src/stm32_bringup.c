@@ -143,6 +143,14 @@ int stm32_bringup(void)
     }
 #endif
 
+#ifdef CONFIG_DEV_GPIO
+  ret = stm32_gpio_initialize();
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "ERROR: Failed to register GPIOs: %d\n", ret);
+    }
+#endif
+
   UNUSED(ret);
   return OK;
 }

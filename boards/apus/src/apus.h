@@ -48,6 +48,11 @@
                          GPIO_PORTD | GPIO_PIN1)
 #define GPIO_BTN_WAKEUP (GPIO_INPUT | GPIO_PULLDOWN | GPIO_PORTA | GPIO_PIN0)
 
+/* Active buzzer: sounds while low */
+
+#define GPIO_BUZZER     (GPIO_OUTPUT | GPIO_PUSHPULL | GPIO_SPEED_LOW | \
+                         GPIO_OUTPUT_SET | GPIO_PORTC | GPIO_PIN9)
+
 /* I2C1 devices */
 
 #define APUS_I2C_BUS        1
@@ -75,6 +80,10 @@ int stm32_rgbled_setup(void);
 
 #if defined(CONFIG_ADC) && defined(CONFIG_STM32_ADC1)
 int stm32_adc_setup(void);
+#endif
+
+#ifdef CONFIG_DEV_GPIO
+int stm32_gpio_initialize(void);
 #endif
 
 #endif /* __ASSEMBLY__ */

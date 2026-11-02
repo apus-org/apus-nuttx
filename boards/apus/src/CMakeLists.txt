@@ -19,6 +19,10 @@ else()
   list(APPEND SRCS stm32_userleds.c)
 endif()
 
+if(CONFIG_DEV_GPIO)
+  list(APPEND SRCS stm32_gpio.c)
+endif()
+
 if(CONFIG_STM32_ADC1)
   list(APPEND SRCS stm32_adc.c)
 endif()
