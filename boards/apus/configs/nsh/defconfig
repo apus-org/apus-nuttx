@@ -5,6 +5,7 @@
 # You can then do "make savedefconfig" to generate a new defconfig file that includes your
 # modifications.
 #
+# CONFIG_DISABLE_DIRECTORY_OPERATIONS is not set
 # CONFIG_FS_PROCFS_EXCLUDE_BLOCKS is not set
 # CONFIG_FS_PROCFS_EXCLUDE_ENVIRON is not set
 # CONFIG_FS_PROCFS_EXCLUDE_MEMDUMP is not set
@@ -17,11 +18,15 @@
 # CONFIG_FS_PROCFS_EXCLUDE_VERSION is not set
 # CONFIG_LCD_ST7789_INVCOLOR is not set
 # CONFIG_NSH_DISABLEBG is not set
+# CONFIG_NSH_DISABLE_CAT is not set
 # CONFIG_NSH_DISABLE_DATE is not set
 # CONFIG_NSH_DISABLE_ECHO is not set
 # CONFIG_NSH_DISABLE_EXEC is not set
 # CONFIG_NSH_DISABLE_EXIT is not set
+# CONFIG_NSH_DISABLE_FREE is not set
 # CONFIG_NSH_DISABLE_HEXDUMP is not set
+# CONFIG_NSH_DISABLE_LS is not set
+# CONFIG_NSH_DISABLE_PS is not set
 # CONFIG_NSH_DISABLE_XD is not set
 CONFIG_ARCH="arm"
 CONFIG_ARCH_BOARD_COMMON=y
