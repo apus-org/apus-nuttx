@@ -246,6 +246,7 @@ static void lcdbus_exchange(struct spi_dev_s *dev, const void *txbuffer,
           if (nbits > 8)
             {
               uint16_t wd = lcdbus_read8() << 8;
+
               ((uint16_t *)rxbuffer)[i] = wd | lcdbus_read8();
             }
           else
@@ -284,6 +285,7 @@ static void lcdbus_recvblock(struct spi_dev_s *dev, void *buffer,
       if (nbits > 8)
         {
           uint16_t wd = lcdbus_read8() << 8;
+
           ((uint16_t *)buffer)[i] = wd | lcdbus_read8();
         }
       else
