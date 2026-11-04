@@ -16,8 +16,6 @@
 #include <nuttx/board.h>
 #include <arch/board/board.h>
 
-#include "arm_internal.h"
-#include "hardware/stm32_rcc.h"
 #include "apus.h"
 
 /****************************************************************************
@@ -30,14 +28,6 @@
 
 void stm32_boardinitialize(void)
 {
-#ifndef CONFIG_STM32_SYSCFG
-  /* The F0 Kconfig never offers STM32_SYSCFG, yet EXTI port selection
-   * needs the SYSCFG clock.
-   */
-
-  modifyreg32(STM32_RCC_APB2ENR, 0, RCC_APB2ENR_SYSCFGCOMPEN);
-#endif
-
 #ifdef CONFIG_STM32_SPI
   stm32_spidev_initialize();
 #endif

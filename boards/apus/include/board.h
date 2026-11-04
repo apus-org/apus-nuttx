@@ -159,6 +159,6 @@
 
 /* DMA channels *************************************************************/
 
-#define ADC1_DMA_CHAN            STM32_DMA1_CHAN1
+#define ADC1_DMA_CHAN            DMACHAN_ADC1_1
 
 #endif /* __BOARDS_APUS_INCLUDE_BOARD_H */
